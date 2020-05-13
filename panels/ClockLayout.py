@@ -18,7 +18,10 @@ class ClockLayout(Frame):
 
     def update_weather(self):
         w = self.observation.get_weather()
-        self._weather_text.set("{}º".format(round(w.get_temperature('celsius')['temp'])))
+        status = w.get_detailed_status().upper()
+        temp = round(w.get_temperature('celsius')['temp'])
+        self._temp_text.set("{}º".format(temp))
+        self._weather_text.set("{}".format(status))
         self.after(15*60*1000, self.update_weather)
 
     def __init__(self, arg_master, **options):
@@ -32,6 +35,7 @@ class ClockLayout(Frame):
         location="Pamplona"
         self.observation = owm.weather_at_place(location+",ES")
 
+        self._temp_text = StringVar()
         self._weather_text = StringVar()
         self._clock_text = StringVar()
         #self._clock_text.set(datetime.now().strftime('%H:%M:%S'))
@@ -39,12 +43,18 @@ class ClockLayout(Frame):
         self._date_text = StringVar()
         self._date_text.set(datetime.now().strftime('%A %d %B'))
 
+        wFrame = Frame(self)
+        wFrame.configure(background='black')
+        wFrame.grid(row=0, column=0, columnspan=2, sticky="w")
 
-        weather = Label(self, textvariable = self._weather_text, font="Arial 24 bold", fg="gray", bg="black")
-        weather.grid(row=0, column=0, sticky="w")
+        temp = Label(wFrame, textvariable = self._temp_text, font="Arial 16 bold", fg="gray", bg="black")
+        temp.pack(side=LEFT)
 
-        location = Label(self, text=location, font="Arial 24", fg="gray", bg="black")
-        location.grid(row=0, column=1, sticky="e")
+        weather = Label(wFrame, textvariable = self._weather_text, font="Arial 16", fg="gray", bg="black")
+        weather.pack(side=LEFT, padx=(8,0))
+
+        location = Label(self, text=location.upper(), font="Arial 16", fg="gray", bg="black")
+        location.grid(row=0, column=1, columnspan=2, sticky="e")
 
         clock = Label(self, textvariable = self._clock_text, font="Arial 128", fg="white", bg="black")
         clock.grid(row=1, column=0, columnspan=2)
