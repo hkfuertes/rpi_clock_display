@@ -1,15 +1,23 @@
 from tkinter import Tk, Label, StringVar, CENTER
 from FullScreenWindow import *
 from layouts.ClockLayout import *
-import os, pyglet
+import os, pyglet, signal
 
+pid_file = os.path.join(os.path.dirname(__file__), '../current.pid')
+
+def receive_signal():
+    # Stopping the app
+    w.destroy()
+    os.remove(pid_file)
 
 if __name__ == '__main__':
     # Saving the curren PID
-    pid_file = os.path.join(os.path.dirname(__file__), '../current.pid')
     file = open(pid_file,'w') 
     file.write("{}".format(os.getpid())) 
     file.close() 
+
+    # Prepare for good closing
+    signal.signal(signal.SIGUSR1, receive_signal)
 
     #Fontawesome
     pyglet.font.add_file(os.path.join(os.path.dirname(__file__), 'otfs/Font Awesome 5 Free-Solid-900.otf'))
