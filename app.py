@@ -1,9 +1,13 @@
 from tkinter import Tk, Label, StringVar, CENTER
 from FullScreenWindow import *
-from panels.ClockLayout import *
+from layouts.ClockLayout import *
+import os, pyglet
 
 
 if __name__ == '__main__':
+    font_path = os.path.join(os.path.dirname(__file__), 'otfs/Font Awesome 5 Free-Solid-900.otf')
+    pyglet.font.add_file(font_path)
+
     w = FullscreenWindow()
     w.title("RPI Display")
     w.configure(background='black')
