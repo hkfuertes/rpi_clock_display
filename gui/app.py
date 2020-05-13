@@ -5,8 +5,9 @@ import os, pyglet, signal
 
 pid_file = os.path.join(os.path.dirname(__file__), '../current.pid')
 
-def receive_signal():
+def receive_signal(signum, frame):
     # Stopping the app
+    print("Closing the app!")
     w.destroy()
     os.remove(pid_file)
 
