@@ -4,7 +4,7 @@ import pyowm, os, json
 class WeatherFrame(Frame):
 
     def load_icon_map(self):
-        json_path = os.path.join(os.path.dirname(__file__), '..\owfont-regular.maping.json')
+        json_path = os.path.join(os.path.dirname(__file__), '../owfont-regular.maping.json')
         json1_file = open(json_path)
         json1_str = json1_file.read()
         return json.loads(json1_str)
