@@ -5,6 +5,12 @@ import os, pyglet
 
 
 if __name__ == '__main__':
+    # Saving the curren PID
+    pid_file = os.path.join(os.path.dirname(__file__), '../current.pid')
+    file = open(pid_file,'w') 
+    file.write("{}".format(os.getpid())) 
+    file.close() 
+
     #Fontawesome
     pyglet.font.add_file(os.path.join(os.path.dirname(__file__), 'otfs/Font Awesome 5 Free-Solid-900.otf'))
     #OWF
