@@ -8,7 +8,7 @@ class ClockFrame(Frame):
             self._clock_text.set(datetime.now().strftime('%H:%M'))
         else:
             self._clock_text.set(datetime.now().strftime('%H %M'))
-        self._date_text.set(datetime.now().strftime('%A %d %B'))
+        self._date_text.set(datetime.now().strftime('%A %d %B').upper())
         self.tick = not self.tick
         self.after(1000, self.update_clock)
 
@@ -26,10 +26,10 @@ class ClockFrame(Frame):
         self._date_text.set(datetime.now().strftime('%A %d %B'))
 
         clock = Label(self, textvariable = self._clock_text, font="Arial 128", fg="white", bg="black")
-        clock.pack()
+        clock.pack(anchor="s")
 
-        date = Label(self, textvariable = self._date_text, font="Arial 24 italic", fg="gray", bg="black", anchor="e")
-        date.pack(fill=X)
+        date = Label(self, textvariable = self._date_text, font="Arial 16 italic", fg="gray", bg="black", anchor="e")
+        date.pack(fill=X, anchor="n")
 
         self.update_clock()
 

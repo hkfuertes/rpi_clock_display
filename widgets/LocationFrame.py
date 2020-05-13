@@ -11,9 +11,9 @@ class LocationFrame(Frame):
         
         self.configure(background="black")
 
-        canvas = Label(self, text=fa.icons["map-marker-alt"], font=("Font Awesome 5 Free Solid", 16), fg="gray", bg="black")  
+        canvas = Label(self, text=fa.icons["map-marker-alt"], font=("Font Awesome 5 Free Solid", 12), fg="gray", bg="black")  
         canvas.pack(side=LEFT)
 
         self.location = "Pamplona"
-        location = Label(self, text=self.location.upper(), font="Arial 16", fg="gray", bg="black")
+        location = Label(self, text=self.location.upper(), font="Arial 12", fg="gray", bg="black")
         location.pack(side=LEFT)

@@ -5,8 +5,10 @@ import os, pyglet
 
 
 if __name__ == '__main__':
-    font_path = os.path.join(os.path.dirname(__file__), 'otfs/Font Awesome 5 Free-Solid-900.otf')
-    pyglet.font.add_file(font_path)
+    #Fontawesome
+    pyglet.font.add_file(os.path.join(os.path.dirname(__file__), 'otfs/Font Awesome 5 Free-Solid-900.otf'))
+    #OWF
+    pyglet.font.add_file(os.path.join(os.path.dirname(__file__), 'otfs/owfont-regular.otf'))
 
     w = FullscreenWindow()
     w.title("RPI Display")
