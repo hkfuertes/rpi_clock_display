@@ -3,7 +3,7 @@ from FullScreenWindow import *
 from layouts.ClockLayout import *
 import os, pyglet, signal
 
-pid_file = os.path.join(os.path.dirname(__file__), '../current.pid')
+pid_file = os.path.join(os.path.dirname(__file__), './current.pid')
 
 def receive_signal(signum, frame):
     # Stopping the app
