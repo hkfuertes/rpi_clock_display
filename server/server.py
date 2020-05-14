@@ -22,4 +22,4 @@ def start_gui():
         return "Already Started!"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(threaded=True)
