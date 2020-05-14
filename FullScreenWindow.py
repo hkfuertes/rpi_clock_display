@@ -7,7 +7,8 @@ class FullscreenWindow(Tk):
         self.geometry("480x320")
         self.resizable(0, 0)
 
-        self.state = False
+        self.state = True
+        self.configure(cursor="none")
         self.attributes("-fullscreen", self.state)
         self.bind("<F11>", self.toggle_fullscreen)
         self.bind("<Escape>", self.end_fullscreen)
