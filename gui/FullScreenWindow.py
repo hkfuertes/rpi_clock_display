@@ -4,7 +4,7 @@ class FullscreenWindow(Tk):
     def __init__(self, *arg_master, **options):
         super(FullscreenWindow, self).__init__(*arg_master, **options)
 
-        self.geometry("480x320+10+10")
+        self.geometry("480x320")
         self.resizable(0, 0)
 
         self.state = False
