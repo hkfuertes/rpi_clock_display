@@ -18,7 +18,7 @@ if __name__ == '__main__':
     file.close() 
 
     # Prepare for good closing
-    signal.signal(signal.SIGUSR1, receive_signal)
+    signal.signal(signal.SIGTERM, receive_signal)
 
     #Fontawesome
     pyglet.font.add_file(os.path.join(os.path.dirname(__file__), 'otfs/Font Awesome 5 Free-Solid-900.otf'))
