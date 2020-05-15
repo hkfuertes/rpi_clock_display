@@ -34,12 +34,6 @@ pip3 install -r requirements.txt
 cp -r otfs /home/pi/.fonts
 ```
 
-To create a desktop entry:
-```bash
-chmod u+x create.desktop.sh 
-./create.desktop.sh
-cp Clock.desktop /home/pi/Desktop
-```
 Now you need to edit the configuration file, to do so, copy the file `config.yml.template` to `config.yml` and edit it acordingly:
 
 ```yaml
@@ -51,6 +45,13 @@ country: ES
 locale: es_ES.UTF-8
 date:
   format: '%A %d de %B'
+```
+
+To create a desktop entry:
+```bash
+chmod u+x create.desktop.sh 
+./create.desktop.sh
+cp Clock.desktop /home/pi/Desktop
 ```
 
 For autorun on startup:
