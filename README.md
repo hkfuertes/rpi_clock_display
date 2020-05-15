@@ -73,5 +73,4 @@ kill -9 $(cat path/to/rpi_display/folder/current.pid)
 
 ## TODO
 - Weahter forecast (free?)
-- Disable screensaver
 - Control brightness with python
