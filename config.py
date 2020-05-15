@@ -1,16 +1,33 @@
-class OnlyOne:
-    class __OnlyOne:
-        def __init__(self, arg):
-            self.val = arg
-        def __str__(self):
-            return repr(self) + self.val
+import yaml
+import os
 
-    instance = None
-    
-    def __init__(self, arg):
-        if not OnlyOne.instance:
-            OnlyOne.instance = OnlyOne.__OnlyOne(arg)
+config_file = os.path.join(os.path.dirname(__file__), './config.yml')
+
+
+class Config:
+
+    __instance = None
+
+    @staticmethod
+    def read_config():
+        instance = None
+        with open(config_file, 'r') as stream:
+            try:
+                instance = yaml.safe_load(stream)
+            except yaml.YAMLError as exc:
+                print(exc)
+        return instance
+
+    @staticmethod
+    def getInstance():
+        """ Static access method. """
+        if Config.__instance == None:
+            Config()
+        return Config.__instance
+
+    def __init__(self):
+        """ Virtually private constructor. """
+        if Config.__instance != None:
+            raise Exception("This class is a singleton!")
         else:
-            OnlyOne.instance.val = arg
-    def __getattr__(self, name):
-        return getattr(self.instance, name)
+            Config.__instance = Config.read_config()

@@ -2,6 +2,7 @@ from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT, Button, FLA
 from windows.FullScreenWindow import FullscreenWindow
 from layouts.WeatherInfoLayout import WeatherInfoLayout
 import pyowm, os, json
+from config import Config
 
 class WeatherFrame(Frame):
 
@@ -31,14 +32,15 @@ class WeatherFrame(Frame):
         wip.pack()
 
     def __init__(self, arg_master, **options):
-        location = "Pamplona"
         super(WeatherFrame, self).__init__(arg_master, **options)
+
+        config = Config.getInstance()
 
         self.configure(background='black')
         self.map = self.load_icon_map()
 
-        self.owm = pyowm.OWM('966f9979caf0bf53ff0706a981c17d49')
-        self.observation = self.owm.weather_at_place(location+",ES")
+        self.owm = pyowm.OWM(config['owm']['api_key'], language=config['owm']['language'])
+        self.observation = self.owm.weather_at_place("{}, {}".format(config['city'], config['country']))
 
         self._temp_text = StringVar()
         self._weather_text = StringVar()

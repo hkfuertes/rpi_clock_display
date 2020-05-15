@@ -1,5 +1,6 @@
 from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT
 from datetime import datetime
+from config import Config
 
 class ClockFrame(Frame):
 
@@ -10,12 +11,14 @@ class ClockFrame(Frame):
             self.clock_dot.configure(fg="grey")
         else:
             self.clock_dot.configure(fg="white")
-        self._date_text.set(datetime.now().strftime('%A %d %B').upper())
+        self._date_text.set(datetime.now().strftime(self.cnf['date']['format']).upper())
         self.tick = not self.tick
         self.after(1000, self.update_clock)
 
     def __init__(self, arg_master, **options):
         super(ClockFrame, self).__init__(arg_master, **options)
+
+        self.cnf = Config.getInstance()
 
         self.tick = True
         clock_size = 118

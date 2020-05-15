@@ -1,0 +1,8 @@
+owm:
+  api_key: <openweathermap_api_key>
+  language: es
+city: Madrid
+country: ES
+locale: es_ES.UTF-8
+date:
+  format: '%A %d de %B'

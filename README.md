@@ -16,9 +16,29 @@ _In my case the orientation that works is 180º_
 
 > Go to lcdwiki for more information: https://github.com/lcdwiki/LCD-show
 
+## Select the proper locale for your country
+This is used to display the date in your own language. In my case for Spain I selected _**es_ES.UTF-8**_
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+### Disable blanking the screen on Raspbian
+To disable screen blanking in raspbian run:
+
+```bash
+mkdir -p /home/pi/.config/lxsession/LXDE-pi/
+echo "@xset s noblank" >> ~/.config/lxsession/LXDE-pi/autostart
+echo "@xset s off" >> ~/.config/lxsession/LXDE-pi/autostart
+echo "@xset -dpms" >> ~/.config/lxsession/LXDE-pi/autostart
+```
+
+> Command `mkdir -p /home/pi/.config/lxsession/LXDE-pi/` makes sure that the forlder exist. we will be executing it everytime just in case.
+
 ## Software installation
 A fresh copy of Rasbpian Lite is prefered.
 ```bash
+sudo timedatectl set-timezone Europe/Madrid
 sudo apt install freeglut3-dev
 git clone https://github.com/hkfuertes/rpi_display
 cd rpi_display
@@ -39,8 +59,6 @@ kill -9 $(cat path/to/rpi_display/folder/current.pid)
 ```
 
 ## TODO
-- Read config.yml
-  - Export OWM key to config.yml
 - Weahter forecast (free?)
 - Disable screensaver
 - Control brightness with python

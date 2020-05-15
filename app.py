@@ -3,6 +3,10 @@ from windows import MainWindow
 from layouts.ClockLayout import *
 import os, pyglet, signal
 
+from config import Config
+
+import locale
+
 pid_file = os.path.join(os.path.dirname(__file__), './current.pid')
 
 def receive_signal(signum, frame):
@@ -12,6 +16,11 @@ def receive_signal(signum, frame):
     os.remove(pid_file)
 
 if __name__ == '__main__':
+
+    config = Config.getInstance()
+    #print(config)
+    locale.setlocale(locale.LC_ALL, config['locale'])
+
     # Saving the curren PID
     file = open(pid_file,'w') 
     file.write("{}".format(os.getpid())) 
