@@ -65,7 +65,7 @@ echo "@/home/pi/clock.start.sh" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 ### Information
 When running a `current.pid`  file is created with the running pid. If you need to kill it you can do:
  ```bash
- cd path/to/rpi_display/folder
+ cd path/to/rpi_clock_display/folder
 kill -9 $(cat current.pid)
 ```
 
