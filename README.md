@@ -16,11 +16,12 @@ _In my case the orientation that works is 180º_
 
 > Go to lcdwiki for more information: https://github.com/lcdwiki/LCD-show
 
-## Select the proper locale for your country
-This is used to display the date in your own language. In my case for Spain I selected _**es_ES.UTF-8**_
+## Select the proper locale/timezone for your country
+This is used to display the date in your own language. In my case for Spain I selected _**es_ES.UTF-8**_ and _**Europe/Madrid**_
 
 ```bash
 sudo dpkg-reconfigure locales
+sudo timedatectl set-timezone Europe/Madrid
 ```
 
 ### Disable blanking the screen on Raspbian
@@ -38,11 +39,15 @@ echo "@xset -dpms" >> ~/.config/lxsession/LXDE-pi/autostart
 ## Software installation
 A fresh copy of Rasbpian Lite is prefered.
 ```bash
-sudo timedatectl set-timezone Europe/Madrid
 sudo apt install freeglut3-dev
 git clone https://github.com/hkfuertes/rpi_display
 cd rpi_display
 pip3 install -r requirements.txt
+cp -r otfs /home/pi/.fonts
+```
+
+To create a desktop entry:
+```bash
 ./create.desktop.sh
 cp Clock.desktop /home/pi/Desktop
 ```
@@ -59,7 +64,7 @@ date:
   format: '%A %d de %B'
 ```
 
-For auto run on startup:
+For autorun on startup:
 ```bash
 mkdir -p /home/pi/.config/lxsession/LXDE-pi/
 echo "@$(pwd)/app.py" >> /home/pi/.config/lxsession/LXDE-pi/autostart
@@ -68,7 +73,8 @@ echo "@$(pwd)/app.py" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 ### Information
 When running a `current.pid`  file is created with the running pid. If you need to kill it you can do:
  ```bash
-kill -9 $(cat path/to/rpi_display/folder/current.pid)
+ cd path/to/rpi_display/folder
+kill -9 $(cat current.pid)
 ```
 
 ## TODO
