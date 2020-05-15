@@ -70,6 +70,5 @@ kill -9 $(cat current.pid)
 ```
 
 ## TODO
-- Disable DPMS/blank screensaver
 - Weahter forecast (free?)
 - Control brightness with python
