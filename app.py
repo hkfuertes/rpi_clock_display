@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from tkinter import Tk, Label, StringVar, CENTER
 from windows import MainWindow
 from layouts.ClockLayout import *
