@@ -1,6 +1,6 @@
-from tkinter import Tk
+from tkinter import Tk, Toplevel
 
-class FullscreenWindow(Tk):
+class FullscreenWindow(Toplevel):
     def __init__(self, *arg_master, **options):
         super(FullscreenWindow, self).__init__(*arg_master, **options)
 

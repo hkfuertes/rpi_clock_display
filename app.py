@@ -1,5 +1,5 @@
 from tkinter import Tk, Label, StringVar, CENTER
-from FullScreenWindow import *
+from windows import MainWindow
 from layouts.ClockLayout import *
 import os, pyglet, signal
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     #OWF
     pyglet.font.add_file(os.path.join(os.path.dirname(__file__), 'otfs/owfont-regular.otf'))
 
-    w = FullscreenWindow()
+    w = MainWindow()
     w.title("RPI Display")
     w.configure(background='black')
 

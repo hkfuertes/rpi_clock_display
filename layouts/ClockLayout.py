@@ -1,6 +1,8 @@
-from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT
+from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT, Button, Toplevel
 from datetime import datetime
+import tkinter.font as font
 from widgets import WeatherFrame, ClockFrame, LocationFrame, IPFrame
+from layouts.WeatherInfoLayout import WeatherInfoLayout
 import pyowm
 
 

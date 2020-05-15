@@ -1,4 +1,6 @@
-from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT
+from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT, Button, FLAT
+from windows.FullScreenWindow import FullscreenWindow
+from layouts.WeatherInfoLayout import WeatherInfoLayout
 import pyowm, os, json
 
 class WeatherFrame(Frame):
@@ -20,6 +22,14 @@ class WeatherFrame(Frame):
         self._weather_text.set("{}".format(status))
         self.after(15*60*1000, self.update_weather)
 
+    def weather_window(self, event):
+        print("Weather Clicked!")
+        ww = FullscreenWindow(self.master)
+        ww.configure(bg="black")
+        wip = WeatherInfoLayout(ww)
+        wip.setOwm(self.owm)
+        wip.pack()
+
     def __init__(self, arg_master, **options):
         location = "Pamplona"
         super(WeatherFrame, self).__init__(arg_master, **options)
@@ -27,14 +37,16 @@ class WeatherFrame(Frame):
         self.configure(background='black')
         self.map = self.load_icon_map()
 
-        owm = pyowm.OWM('966f9979caf0bf53ff0706a981c17d49')
-        self.observation = owm.weather_at_place(location+",ES")
+        self.owm = pyowm.OWM('966f9979caf0bf53ff0706a981c17d49')
+        self.observation = self.owm.weather_at_place(location+",ES")
 
         self._temp_text = StringVar()
         self._weather_text = StringVar()
         self._weather_icon = StringVar()
 
-        icon = Label(self, textvariable = self._weather_icon, font=("owf-regular",16), fg="lightgray", bg="black")
+        icon = Label(self, textvariable = self._weather_icon, font=("owf-regular",24), fg="lightgray", bg="black")
+        #icon.bind("<Button-1>", self.weather_window)
+        #icon.configure(cursor="hand1")
         icon.pack(side=LEFT)
 
         temp = Label(self, textvariable = self._temp_text, font="Arial 16 bold", fg="lightgray", bg="black")
