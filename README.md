@@ -28,8 +28,8 @@ sudo timedatectl set-timezone Europe/Madrid
 A fresh copy of Rasbpian Lite is assumed.
 ```bash
 sudo apt install freeglut3-dev
-git clone https://github.com/hkfuertes/rpi_display
-cd rpi_display
+git clone https://github.com/hkfuertes/rpi_clock_display
+cd rpi_clock_display
 pip3 install -r requirements.txt
 cp -r otfs /home/pi/.fonts
 ```
