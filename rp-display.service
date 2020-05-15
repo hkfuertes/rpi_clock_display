@@ -1,13 +1,13 @@
 [Unit]
 Description=RPI Display
-After=network.target
-StartLimitIntervalSec=0[Service]
+After=graphical.target
+
+[Service]
 Type=simple
-Restart=always
-RestartSec=1
-User=pi
 WorkingDirectory=/rpi-display
-ExecStart=/rpi-dsiplay/start.remote.sh
+User=pi
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/python3 /rpi-display/app.py
 
 [Install]
 WantedBy=multi-user.target
