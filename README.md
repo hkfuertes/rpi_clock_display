@@ -25,7 +25,7 @@ sudo timedatectl set-timezone Europe/Madrid
 ```
 
 ## Software installation
-A fresh copy of Rasbpian Lite is prefered.
+A fresh copy of Rasbpian Lite is assumed.
 ```bash
 sudo apt install freeglut3-dev
 git clone https://github.com/hkfuertes/rpi_display
@@ -36,6 +36,7 @@ cp -r otfs /home/pi/.fonts
 
 To create a desktop entry:
 ```bash
+chmod u+x create.desktop.sh 
 ./create.desktop.sh
 cp Clock.desktop /home/pi/Desktop
 ```
@@ -54,7 +55,10 @@ date:
 
 For autorun on startup:
 ```bash
-./create.starter.sh
+chmod u+x create.launcher.sh 
+./create.launcher.sh
+mkdir -p /home/pi/.config/lxsession/LXDE-pi/
+echo "@/home/pi/clock.start.sh" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 ```
 
 ### Information
