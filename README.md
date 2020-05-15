@@ -54,8 +54,7 @@ date:
 
 For autorun on startup:
 ```bash
-mkdir -p /home/pi/.config/lxsession/LXDE-pi/
-echo "@cd $(pwd) && ./start.sh" >> /home/pi/.config/lxsession/LXDE-pi/autostart
+./create.starter.sh
 ```
 
 ### Information
