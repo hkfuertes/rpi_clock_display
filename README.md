@@ -42,3 +42,5 @@ kill -9 $(cat path/to/rpi_display/folder/current.pid)
 - Read config.yml
   - Export OWM key to config.yml
 - Weahter forecast (free?)
+- Disable screensaver
+- Control brightness with python
