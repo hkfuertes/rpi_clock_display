@@ -1,3 +1,4 @@
 #!/bin/bash
 export DISPLAY=:0
-/usr/bin/python3 app.py &
+xset s off -dpms
+/usr/bin/python3 app.py

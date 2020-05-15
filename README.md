@@ -24,18 +24,6 @@ sudo dpkg-reconfigure locales
 sudo timedatectl set-timezone Europe/Madrid
 ```
 
-### Disable blanking the screen on Raspbian
-To disable screen blanking in raspbian run:
-
-```bash
-mkdir -p /home/pi/.config/lxsession/LXDE-pi/
-echo "@xset s noblank" >> ~/.config/lxsession/LXDE-pi/autostart
-echo "@xset s off" >> ~/.config/lxsession/LXDE-pi/autostart
-echo "@xset -dpms" >> ~/.config/lxsession/LXDE-pi/autostart
-```
-
-> Command `mkdir -p /home/pi/.config/lxsession/LXDE-pi/` makes sure that the forlder exist. we will be executing it everytime just in case.
-
 ## Software installation
 A fresh copy of Rasbpian Lite is prefered.
 ```bash
@@ -67,7 +55,7 @@ date:
 For autorun on startup:
 ```bash
 mkdir -p /home/pi/.config/lxsession/LXDE-pi/
-echo "@$(pwd)/app.py" >> /home/pi/.config/lxsession/LXDE-pi/autostart
+echo "@$(pwd)/start.sh" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 ```
 
 ### Information
@@ -78,5 +66,6 @@ kill -9 $(cat current.pid)
 ```
 
 ## TODO
+- Disable DPMS/blank screensaver
 - Weahter forecast (free?)
 - Control brightness with python
