@@ -1,3 +1,4 @@
 #!/bin/bash
-source env/bin/activate
-python3 app.py
+export DISPLAY=:0
+xset s off -dpms
+/usr/bin/python3 app.py
