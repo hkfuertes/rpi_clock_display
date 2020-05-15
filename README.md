@@ -32,6 +32,12 @@ mkdir -p /home/pi/.config/lxsession/LXDE-pi/
 echo "@$(pwd)/app.py" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 ```
 
+### Information
+When running a `current.pid`  file is created with the running pid. If you need to kill it you can do:
+ ```bash
+kill -9 $(cat path/to/rpi_display/folder/current.pid)
+```
+
 ## TODO
 - Read config.yml
   - Export OWM key to config.yml
