@@ -20,6 +20,8 @@ _In my case the orientation that works is 180º_
 A fresh copy of Rasbpian Lite is prefered.
 ```bash
 sudo apt install freeglut3-dev
+git clone https://github.com/hkfuertes/rpi_display
+cd rpi_display
 pip3 install -r requirements.txt
 ./create.desktop.sh
 cp Clock.desktop /home/pi/Desktop
