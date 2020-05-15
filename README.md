@@ -46,6 +46,19 @@ pip3 install -r requirements.txt
 ./create.desktop.sh
 cp Clock.desktop /home/pi/Desktop
 ```
+Now you need to edit the configuration file, to do so, copy the file `config.yml.template` to `config.yml` and edit it acordingly:
+
+```yaml
+owm:
+  api_key: <openweathermap_api_key>
+  language: es
+city: Madrid
+country: ES
+locale: es_ES.UTF-8
+date:
+  format: '%A %d de %B'
+```
+
 For auto run on startup:
 ```bash
 mkdir -p /home/pi/.config/lxsession/LXDE-pi/
