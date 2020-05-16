@@ -2,6 +2,7 @@
 This project is a simple Raspberry Pi clock app with wheather and IP information.
 
 ![image](pictures/screenshot.jpg "Running")
+![image](pictures/screenshot2.PNG "Running")
 
 ## LCD Panel installation
 Please refer to your lcd installation process for more detail. For my panel to work I needed to follow this steps on a fresh Raspbian Lite (buster) image:
@@ -45,6 +46,8 @@ country: ES
 locale: es_ES.UTF-8
 date:
   format: '%A %d de %B'
+chromecast: <chromecast_name_to_follow>
+fullscreen_start: True
 ```
 
 To create a desktop entry:
