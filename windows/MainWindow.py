@@ -1,4 +1,5 @@
 from tkinter import Tk
+from config import Config
 
 class MainWindow(Tk):
     def __init__(self, *arg_master, **options):
@@ -7,7 +8,8 @@ class MainWindow(Tk):
         self.geometry("480x320")
         self.resizable(0, 0)
 
-        self.state = True
+        config = Config.getInstance()
+        self.state = config['fullscreen_start']
         self.configure(cursor="none")
         self.attributes("-fullscreen", self.state)
         self.bind("<F11>", self.toggle_fullscreen)

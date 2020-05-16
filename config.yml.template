@@ -6,3 +6,5 @@ country: ES
 locale: es_ES.UTF-8
 date:
   format: '%A %d de %B'
+chromecast: <chromecast_name_to_follow>
+fullscreen_start: True

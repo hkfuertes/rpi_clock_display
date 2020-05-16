@@ -3,6 +3,7 @@ from datetime import datetime
 from PIL import ImageTk,Image
 import fontawesome as fa
 import pyglet, os, socket
+from config import Config
 
 
 class IPFrame(Frame):
@@ -16,7 +17,9 @@ class IPFrame(Frame):
         
         self.configure(background="black")
 
-        canvas = Label(self, text=fa.icons["wifi"], font=("Font Awesome 5 Free Solid", 12), fg="gray", bg="black")  
+        config = Config.getInstance()
+
+        canvas = Label(self, text=fa.icons["wifi"], font=(config['fonts']['fa_solid'], 12), fg="gray", bg="black")  
         canvas.pack(side=LEFT)
 
         location = Label(self, text=self.ip.upper(), font="Arial 12", fg="gray", bg="black")

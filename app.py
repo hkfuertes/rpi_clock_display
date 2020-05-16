@@ -20,7 +20,7 @@ def receive_signal(signum, frame):
 if __name__ == '__main__':
 
     config = Config.getInstance()
-    #print(config)
+    print(config)
     locale.setlocale(locale.LC_ALL, config['locale'])
 
     # Saving the curren PID

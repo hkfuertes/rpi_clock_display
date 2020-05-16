@@ -1,5 +1,5 @@
 from tkinter import Frame, Label, StringVar, CENTER, X, LEFT, RIGHT, Button, FLAT
-from windows.FullScreenWindow import FullscreenWindow
+from windows.FullScreenWindow import FullScreenWindow
 from layouts.WeatherInfoLayout import WeatherInfoLayout
 import pyowm, os, json
 from config import Config
@@ -46,7 +46,7 @@ class WeatherFrame(Frame):
         self._weather_text = StringVar()
         self._weather_icon = StringVar()
 
-        icon = Label(self, textvariable = self._weather_icon, font=("owf-regular",24), fg="lightgray", bg="black")
+        icon = Label(self, textvariable = self._weather_icon, font=(config['fonts']['owf'],24), fg="lightgray", bg="black")
         #icon.bind("<Button-1>", self.weather_window)
         #icon.configure(cursor="hand1")
         icon.pack(side=LEFT)

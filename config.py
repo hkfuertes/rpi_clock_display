@@ -14,6 +14,12 @@ class Config:
         with open(config_file, 'r') as stream:
             try:
                 instance = yaml.safe_load(stream)
+                instance['fonts'] = {
+                    "fa_solid":"Font Awesome 5 Free Solid",
+                    "fa_regular":"Font Awesome 5 Free Regular",
+                    "fa_brands":"Font Awesome 5 Free Brands",
+                    "owf":"owf-regular"
+                }
             except yaml.YAMLError as exc:
                 print(exc)
         return instance

@@ -1,13 +1,15 @@
 from tkinter import Tk, Toplevel
+from config import Config
 
-class FullscreenWindow(Toplevel):
+class FullScreenWindow(Toplevel):
     def __init__(self, *arg_master, **options):
-        super(FullscreenWindow, self).__init__(*arg_master, **options)
+        super(FullScreenWindow, self).__init__(*arg_master, **options)
 
         self.geometry("480x320")
         self.resizable(0, 0)
 
-        self.state = True
+        config = Config.getInstance()
+        self.state = config['fullscreen_start']
         self.configure(cursor="none")
         self.attributes("-fullscreen", self.state)
         self.bind("<F11>", self.toggle_fullscreen)
