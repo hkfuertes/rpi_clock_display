@@ -3,7 +3,7 @@ chardet==3.0.4
 fontawesome==5.10.1.post1
 geojson==2.5.0
 idna==2.9
-Pillow==7.1.2
+Pillow==8.1.1
 pyglet==1.5.5
 pyowm==2.10.0
 PyYAML==5.3.1
